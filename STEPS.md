@@ -26,3 +26,5 @@
   - Edit the 'packages.json' file by changing the version for the outdated packages to the latest version shown from the 'npm outdated' command.
   - Run npm update again
   - `npm update`
+- Install the MaterializeCSS framework
+  - `npm install materialize-css`
