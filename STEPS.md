@@ -28,3 +28,5 @@
   - `npm update`
 - Install the MaterializeCSS framework
   - `npm install materialize-css`
+- Get rid of the 'users' page
+  - Delete the 'routes/users.js' file and remove two lines from 'app.js'
