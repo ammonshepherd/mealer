@@ -1,0 +1,14 @@
+{
+  "name": "mealer",
+  "version": "0.0.1",
+  "description": "Meal planning and Grocery list App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Ammon Shepherd",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.2"
+  }
+}

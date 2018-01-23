@@ -1,0 +1,16 @@
+- make a project directory
+  - `mkdir project`
+- Create a packages.json file using npm
+  - `npm init`
+- Install express
+  - `npm install express`
+- Make it version controlled
+  - `git init`
+- Write a README.md (just very basic for now)
+  - `vim README.md`
+- Write a STEPS.md file to document how this site is created, step by step.
+  - `vim STEPS.md`
+- Create a .gitignore file to ignore some files.
+  - `vim .gitignore`
+  - Files/folders to ignore so far
+    - node_modules
