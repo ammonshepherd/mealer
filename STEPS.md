@@ -14,3 +14,15 @@
   - `vim .gitignore`
   - Files/folders to ignore so far
     - node_modules
+- Add the files to the git repository and commit them.
+  - `git add .`
+  - `git commit -m "Initial commit"`
+- Run the express generator
+  - `express --view=pug .`
+- And install all of the dependencies
+  - `npm install`
+- Find outdated packages and upgrade them.
+  - `npm outdated`
+  - Edit the 'packages.json' file by changing the version for the outdated packages to the latest version shown from the 'npm outdated' command.
+  - Run npm update again
+  - `npm update`
