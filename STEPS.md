@@ -30,3 +30,10 @@
   - `npm install materialize-css`
 - Get rid of the 'users' page
   - Delete the 'routes/users.js' file and remove two lines from 'app.js'
+- Install 'nodemon' so that the npm server restarts on any file change
+  - `npm install nodemon`
+  - Change the 'package.json' file to use nodemon instead of npm to start
+    ```
+    "scripts": {                                                                 
+     "start": "nodemon ./bin/www",
+    ```
