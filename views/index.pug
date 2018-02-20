@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .wrapper
+    .row
+      .col.s4#week
+        each color, day in {'sunday':'red lighten-3', 'monday':'purple lighten-3', 'tuesday':'blue lighten-3', 'wednesday':'teal lighten-3', 'thursday':'light-green lighten-3', 'friday':'yellow lighten-3', 'saturday':'orange lighten-3'}
+          .row.container
+            div(class="card")
+              div(class="card-content text-flow " + color)= day.toUpperCase()
+                div(class="day" id=day)
+      .col.s8.grey.lighten-2#meals
+        .meal.card.horizontal
+          form
+            .form
+              input(type="search" name="q")
+              button Search
+  include includes/foot

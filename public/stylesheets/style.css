@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.meal-image {
+  max-height: 100px;
+}
+
+.day {
+  min-height: 50px;
+}
