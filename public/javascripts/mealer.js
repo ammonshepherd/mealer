@@ -9,7 +9,7 @@ $( document ).ready(function() {
                 <img class="meal-image" src="`+ json.baseUri + recipe.image +`">
               </div>
               <div class="card-content">
-                <span class='meal-title truncate'>`+ recipe.title +`</span> 
+                <span class='meal-title'>`+ recipe.title +`</span> 
               </div> 
           </div>`;
         $("#meals").append(mealHTML);
@@ -23,9 +23,19 @@ $( document ).ready(function() {
 
 });
 
-dragula([document.getElementById("sunday"), document.getElementById("monday"), document.getElementById("tuesday"),document.getElementById("wednesday"),document.getElementById("thursday"), document.getElementById("friday"), document.getElementById("saturday"), document.getElementById("meals")], {
+var drake = dragula([document.getElementById("sunday"), document.getElementById("monday"), document.getElementById("tuesday"),document.getElementById("wednesday"),document.getElementById("thursday"), document.getElementById("friday"), document.getElementById("saturday"), document.getElementById("meals")], {
   copy: true,
   accepts: function(el, target, source, sibling){
     return target !== document.getElementById("meals");
   }
+});
+
+var scroll = autoScroll([ 
+    window,
+    document.querySelector('#week'), document.querySelector('#recipes') 
+  ],{
+    margin: 20,
+    autoScroll: function() {
+      return this.down && drake.dragging;
+    }
 });
