@@ -1,21 +1,21 @@
 extends layout
 
 block content
-  .row.indigo
-    #search-bar.col.s12.white.valign-wrapper
-      i.material-icons.medium.left-align cake
-      h5.left-align Mealer
-      form.center-align
+  .row
+    #search-bar.col.s12.blue.darken-4.valign-wrapper
+      i.material-icons.orange-text.text-darken-2.medium.blue.darken-3 local_restaurant
+      h2#logo-title.grey-text.text-lighten-3 Mealer
+      form
         input#search-field.browser-default(type="search" name="q")
-        button.waves-effect.waves-light.btn Search
-    #week.col.s5.blue
+        button.waves-effect.waves-light.btn.brown.darken-3 Search
+    #week.col.s5.blue.lighten-5
       each color, day in {'sunday':'red lighten-3', 'monday':'purple lighten-3', 'tuesday':'blue lighten-3', 'wednesday':'teal lighten-3', 'thursday':'light-green lighten-3', 'friday':'yellow lighten-3', 'saturday':'orange lighten-3'}
         .row
           .card(class=color)
             .card-content= day.toUpperCase()
               div.day(id=day)
 
-    #recipes.col.s7.green
+    #recipes.col.s7
       #meals
         .meal.card.horizontal
   include includes/foot

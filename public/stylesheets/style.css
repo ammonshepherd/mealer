@@ -2,6 +2,10 @@ a {
   color: #00B7FF;
 }
 
+#logo-title {
+  margin-left: 10px;
+}
+
 #week {
   overflow-y: auto;
 }
@@ -9,13 +13,10 @@ a {
   min-height: 25px;
 }
 
-#search-bar {
-  padding: 15px;
-}
 #search-field {
   margin-left: 50px;
   margin-right: 50px;
-  padding: 4px;
+  padding: 8px;
   color: black;
   font-size: 2em;
 }
