@@ -20,16 +20,41 @@ $( document ).ready(function() {
       console.log("Request failed: " + err);
   });
 
-
 });
 
-var drake = dragula([document.getElementById("sunday"), document.getElementById("monday"), document.getElementById("tuesday"),document.getElementById("wednesday"),document.getElementById("thursday"), document.getElementById("friday"), document.getElementById("saturday"), document.getElementById("meals")], {
-  copy: true,
-  accepts: function(el, target, source, sibling){
-    return target !== document.getElementById("meals");
+/* Create the drake object that allows the meals cards to be dropped onto day cards
+* Options: copy = clone the meal card instead of moving the actual meal card
+*          accepts = function to state that only the meals can be dragged, not the day cards
+* on: waits for the drop, then calls the function to add the delete button to the meal card.
+*/
+
+var drake = dragula(
+  [
+    document.getElementById("sunday"), 
+    document.getElementById("monday"), 
+    document.getElementById("tuesday"),
+    document.getElementById("wednesday"),
+    document.getElementById("thursday"), 
+    document.getElementById("friday"), 
+    document.getElementById("saturday"), 
+    document.getElementById("meals")
+  ], {
+    copy: function(el, source){
+      return source === document.getElementById("meals");
+    },
+    accepts: function(el, target, source, sibling){
+      return target !== document.getElementById("meals");
+    }
+}).on('drop', addDeleteMealButton);
+
+function addDeleteMealButton(el, to, from) {
+  // Only add the delete button if it is not already there.
+  if (el.querySelector(".delete-meal-card") === null) {
+    el.insertAdjacentHTML('beforeend', '<i class="material-icons red-text right-align delete-meal-card" onclick="this.parentNode.remove()">delete</i>');
   }
-});
+}
 
+// Allow window to scroll when dragging a meal card
 var scroll = autoScroll([ 
     window,
     document.querySelector('#week'), document.querySelector('#recipes') 
