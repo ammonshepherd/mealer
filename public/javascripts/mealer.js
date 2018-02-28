@@ -4,7 +4,7 @@ $( document ).ready(function() {
     .done(function(json) {
       json.results.forEach(function(recipe) {
         const mealHTML = `
-            <div class='meal card horizontal'>
+            <div class='meal card horizontal orange lighten-5'>
               <div class="card-image">
                 <img class="meal-image" src="`+ json.baseUri + recipe.image +`">
               </div>
