@@ -8,9 +8,11 @@ $( document ).ready(function() {
               <div class="card-image">
                 <img class="meal-image" src="`+ json.baseUri + recipe.image +`">
               </div>
-              <div class="card-content">
-                <span class='meal-title'>`+ recipe.title +`</span> 
-              </div> 
+              <div class="card-stacked">
+                <div class="card-content">
+                  <span class='meal-title'>`+ recipe.title +`</span> 
+                </div> 
+              </div>
           </div>`;
         $("#meals").append(mealHTML);
       });
@@ -50,7 +52,7 @@ var drake = dragula(
 function addDeleteMealButton(el, to, from) {
   // Only add the delete button if it is not already there.
   if (el.querySelector(".delete-meal-card") === null) {
-    el.insertAdjacentHTML('beforeend', '<i class="material-icons red-text right-align delete-meal-card" onclick="this.parentNode.remove()">delete</i>');
+    el.insertAdjacentHTML('beforeend', '<div class="card-action delete-meal"><i class="material-icons delete-meal-card red-text" onclick="this.parentNode.parentNode.remove()">delete</i></div>');
   }
 }
 
