@@ -2,17 +2,28 @@ extends layout
 
 block content
   .row
-    #search-bar.col.s12.blue.darken-4.valign-wrapper
-      i.material-icons.orange-text.text-darken-2.medium.blue.darken-3 local_restaurant
-      h2#logo-title.grey-text.text-lighten-3 Mealer
-      form
-        input#search-field.browser-default(type="search" name="q")
-        button.waves-effect.waves-light.btn.brown.darken-3 Search
+    #search-bar.col.s12.indigo.darken-4
+      .row.valign-wrapper
+        .col.s3.valign-wrapper
+          i.material-icons.left.orange-text.text-darken-2.medium.blue.darken-3 local_restaurant
+          h2#logo-title.hide-on-med-and-down.grey-text.text-lighten-3 Mealer
+        .col.s7
+          #search-bar
+            form
+              input#search-field.browser-default(type="search" name="q")
+              button.waves-effect.waves-light.btn.brown.darken-2 Search
+        .col.s2
+          #login
+            button#authorize-button.waves-effect.waves-light.btn.green(style="display: none;") Authorize
+            button#signout-button.waves-effect.waves-light.btn.red(style="display: none;") Sign Out
+
+
     #week.col.s5.blue.lighten-5
       each color, day in {'sunday':'red lighten-3', 'monday':'purple lighten-3', 'tuesday':'blue lighten-3', 'wednesday':'teal lighten-3', 'thursday':'light-green lighten-3', 'friday':'yellow lighten-3', 'saturday':'orange lighten-3'}
         .row
           .card(class=color)
-            .card-content= day.toUpperCase()
+            .card-content
+              span.card-title= day.toUpperCase()
               div.day(id=day)
 
     #recipes.col.s7
