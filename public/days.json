@@ -1,0 +1,30 @@
+[ 
+  {
+  "name": "sunday",
+  "color": "red lighten-3"
+  },
+  {
+    "name": "monday",
+    "color": "purple lighten-3"
+  },
+  {
+    "name": "tuesday",
+    "color": "blue lighten-3"
+  },
+  {
+    "name": "wednesday",
+    "color": "teal lighten-3"
+  },
+  {
+    "name": "thursday",
+    "color": "light-green lighten-3"
+  },
+  {
+    "name": "friday",
+    "color": "yellow lighten-3"
+  },
+  {
+    "name": "saturday",
+    "color": "orange"
+  }
+]

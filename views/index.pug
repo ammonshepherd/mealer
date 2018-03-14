@@ -9,13 +9,9 @@ block content
         input#search-field.browser-default(type="search" name="q")
         button.waves-effect.waves-light.btn.brown.darken-3 Search
     #week.col.s5.blue.lighten-5
-      each color, day in {'sunday':'red lighten-3', 'monday':'purple lighten-3', 'tuesday':'blue lighten-3', 'wednesday':'teal lighten-3', 'thursday':'light-green lighten-3', 'friday':'yellow lighten-3', 'saturday':'orange lighten-3'}
-        .row
-          .card(class=color)
-            .card-content= day.toUpperCase()
-              div.day(id=day)
+      //- days appended from mealer.js
 
     #recipes.col.s7
       #meals
-        .meal.card.horizontal
+        //- recipies appended from mealer.js
   include includes/foot
