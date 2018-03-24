@@ -6,7 +6,7 @@ a {
   overflow-y: auto;
 }
 .day {
-  min-height: 25px;
+  min-height: 55px;
 }
 
 #search-field {
@@ -27,4 +27,26 @@ a {
 
 .delete-meal {
   padding: 0px !important;
+}
+
+#sunday-card {
+  background-color: #ef9a9a;
+}
+#monday-card {
+  background-color: #ce93d8;
+}
+#tuesday-card {
+  background-color: #90caf9;
+}
+#wednesday-card {
+  background-color: #80cbc4;
+}
+#thursday-card {
+  background-color: #c5e1a5;
+}
+#friday-card {
+  background-color: #fff59d;
+}
+#saturday-card {
+  background-color: #ffb74d;
 }
