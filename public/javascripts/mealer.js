@@ -1,3 +1,24 @@
+function getDaysList() {
+  var today = new Date();
+
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var daysList = new Array();
+  // 0 = list days starting with today
+  // 1 = list days starting with tomorrow
+  var d = 0;
+  // the number here determins how many days to show
+  while (d < 18) {
+    var dday = new Date(today);
+    dday.setDate(today.getDate()+d);
+    dday.setHours(17,30);
+
+    daysList.push({"name": days[dday.getDay()], "datum": dday}); 
+    d++;
+  }
+
+  return daysList;
+}
+
 $( document ).ready(function() {
 
   $.getJSON("./recipies.json")
@@ -22,50 +43,36 @@ $( document ).ready(function() {
       console.log("Request failed: " + err);
     });
 
-  $.getJSON("./days.json")
-    .done(function(json) {
-      json.forEach(function(day) {
-        const dayHTML = `
-          <div class="row">
-            <div class="card `+ day.color +`">
-              <div class="card-content">`+ day.name.toUpperCase() +`
-                <div class="day" id="`+ day.name +`"></div>
-              </div>
-            </div>
+  var dayJSON = getDaysList();
+  dayJSON.forEach(function(day) {
+    const dayHTML = `
+      <div class="row">
+        <div class="card" id="`+ day.name.toLowerCase() +`-card">
+          <div class="card-content">`+ day.datum +`
+            <div class="day" id="`+ day.name.toLowerCase() +`"></div>
           </div>
-          `;
-        $("#week").append(dayHTML); 
-      });
-    })
-    .fail(function(data, textStatus, error){
-      var err = textStatus + ", " + error;
-      console.log("Request failed: " + err);
-    });
+        </div>
+      </div>
+      `;
+    $("#week").append(dayHTML); 
+  });
 
 });
 
-// Get the dates for the next 7 days. 
 
-// Get the day of the week for tomorrow.
-function getTomorrow() {
-  var today = new Date();
-  var tomorrow = new Date(today);
-  tomorrow.setDate(today.getDate()+1);
-
-  var num_tomorrow = tomorrow.getDay();
-  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  return days[num_tomorrow];
-}
-
-
+// Make sure all of this gets called very last, or else it can't detect the
+// dynamically created day cards.
 window.onload = function() {
 
-  /* Create the drake object that allows the meals cards to be dropped onto day cards
-  * Options: copy = clone the meal card instead of moving the actual meal card
-  *          accepts = function to state that only the meals can be dragged, not the day cards
-  * on: waits for the drop, then calls the function to add the delete button to the meal card.
+  /* 
+  * Create the object that allows the meals cards to be dropped onto day cards 
+  * Options: 
+  * copy = clone the meal card instead of moving the actual meal card
+  * accepts = function to state that only the meals can be dragged, not the day
+  *           cards 
+  * on: waits for the drop, then calls the function to add the delete button to
+  *     the meal card.
   */
-
   var drake = dragula(
     [
       document.getElementById("sunday"), 
