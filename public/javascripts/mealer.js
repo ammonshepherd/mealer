@@ -1,18 +1,30 @@
 function getDaysList() {
+  var locale = 'en-US';
+  var hour = 17;
+  var minutes = 30;
+  var daysToShow = 7;
+
   var today = new Date();
 
-  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var daysList = new Array();
   // 0 = list days starting with today
   // 1 = list days starting with tomorrow
   var d = 0;
+
   // the number here determins how many days to show
-  while (d < 18) {
+  while (d < daysToShow) {
+
     var dday = new Date(today);
     dday.setDate(today.getDate()+d);
-    dday.setHours(17,30);
+    // Sets the time of day, later to be used to set the time of the calendar
+    // event
+    dday.setHours(hour,minutes);
 
-    daysList.push({"name": days[dday.getDay()], "datum": dday}); 
+    var nameOfDay = dday.toLocaleString(locale, {weekday: 'long'});
+    var month = dday.toLocaleString(locale, {month: 'long'});
+    var day = dday.toLocaleString(locale, {day: 'numeric'});
+
+    daysList.push({"name": nameOfDay, "month": month, "day": day, "datum": dday, }); 
     d++;
   }
 
@@ -48,7 +60,7 @@ $( document ).ready(function() {
     const dayHTML = `
       <div class="row">
         <div class="card" id="`+ day.name.toLowerCase() +`-card">
-          <div class="card-content">`+ day.datum +`
+          <div class="card-content">`+ day.name +`, `+ day.month +` `+ day.day +`
             <div class="day" id="`+ day.name.toLowerCase() +`"></div>
           </div>
         </div>
