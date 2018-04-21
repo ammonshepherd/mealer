@@ -1,13 +1,15 @@
 extends layout
 
 block content
+  .navbar-fixed
+    nav.blue.darken-4
+      .nav-wrapper
+        a.brand-logo(href="/") Mealer
+        ul.right.hide-on-med-and-down
+          li: a(href="#badges") About
+          li: a(href="#badges") Sign In
+
   .row
-    #search-bar.col.s12.blue.darken-4.valign-wrapper
-      i.material-icons.orange-text.text-darken-2.medium.blue.darken-3 local_restaurant
-      h2#logo-title.grey-text.text-lighten-3 Mealer
-      form
-        input#search-field.browser-default(type="search" name="q")
-        button.waves-effect.waves-light.btn.brown.darken-3 Search
     #week.col.s5.blue.lighten-5
       //- days appended from mealer.js
 
